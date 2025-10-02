@@ -1,0 +1,20 @@
+# Ignore everything
+/*
+
+# Allow Git metadata
+!/.gitignore
+
+# Allow source code
+!/src/
+
+# Allow configs
+!/package.json
+!/package-lock.json
+!/tsconfig.json
+!/README.md
+
+# Allow VS Code configs
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+
