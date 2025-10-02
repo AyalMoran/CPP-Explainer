@@ -69,6 +69,8 @@ function registerHover(context: vscode.ExtensionContext) {
 
         const md = new vscode.MarkdownString(undefined, true);
         md.isTrusted = false;
+        // extension header
+        md.appendMarkdown(`$(book) **C++ Keyword Explainer**\n\n`);
         // title
         md.appendMarkdown(`$(symbol-keyword) **${entry.title}**\n\n`);
         // summary as a callout-style blockquote

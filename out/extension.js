@@ -66,12 +66,23 @@ function registerHover(context) {
             const range = new vscode.Range(position.line, hit.start, position.line, hit.end);
             const md = new vscode.MarkdownString(undefined, true);
             md.isTrusted = false;
-            md.appendMarkdown(`**${entry.title}**\n\n`);
-            md.appendMarkdown(`${entry.summary}\n\n`);
-            if (entry.note)
-                md.appendMarkdown(`*Note:* ${entry.note}\n`);
-            if (entry.ref)
-                md.appendMarkdown(`\nReference: ${entry.ref}`);
+            // extension header
+            md.appendMarkdown(`$(book) **C++ Keyword Explainer**\n\n`);
+            // title
+            md.appendMarkdown(`$(symbol-keyword) **${entry.title}**\n\n`);
+            // summary as a callout-style blockquote
+            md.appendMarkdown(`> ${entry.summary}\n\n`);
+            // optional note
+            if (entry.note) {
+                md.appendMarkdown(`$(alert) *Note*: ${entry.note}\n\n`);
+            }
+            // optional reference link
+            if (entry.ref) {
+                // Render as a clickable link (still safe with isTrusted=false for http/https)
+                md.appendMarkdown(`$(link-external) [Reference](${entry.ref})`);
+            }
+            // improve readability with an extra newline at end
+            md.appendMarkdown(`\n`);
             return new vscode.Hover(md, range);
         }
     });

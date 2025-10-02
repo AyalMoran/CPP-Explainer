@@ -9,8 +9,8 @@ const d = (title, summary, note, ref) => ({ title, summary, note, ref });
  */
 exports.CPP_KEYWORDS = {
     // casts
-    "static_cast": d("static_cast<T>(expr)", "Compile-time checked, explicit cast. Disallows unrelated pointer casts. Performs standard conversions (numeric, enum, pointer up/down if safe).", "Fails to compile on invalid conversions. No runtime type check."),
-    "const_cast": d("const_cast<T>(expr)", "Adds or removes const/volatile from a pointer or reference.", "Undefined behavior if you modify an object originally defined const."),
+    "static_cast": d("static_cast<T>(expr)", "Compile-time checked, explicit cast. Disallows unrelated pointer casts. Performs standard conversions (numeric, enum, pointer up/down if safe).", "Fails to compile on invalid conversions. No runtime type check.", "https://en.cppreference.com/w/cpp/language/static_cast"),
+    "const_cast": d("const_cast<T>(expr)", "Adds or removes const/volatile from a pointer or reference.", "Undefined behavior if you modify an object originally defined const.", "https://en.cppreference.com/w/cpp/language/const_cast"),
     "reinterpret_cast": d("reinterpret_cast<T>(expr)", "Low-level, bit-pattern reinterpretation. No guarantees on portability or safety.", "Use only for well-defined ABI tricks. Often non-portable."),
     "dynamic_cast": d("dynamic_cast<T>(expr)", "Runtime-checked cast across polymorphic hierarchies.", "Requires a polymorphic base (at least one virtual function). Returns nullptr or throws bad_cast on failure."),
     // object and function specifiers
