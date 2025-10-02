@@ -1,0 +1,47 @@
+{
+  "name": "cpp-keyword-explainer",
+  "displayName": "C++ Keyword Explainer",
+  "description": "Toggle with Ctrl+Alt+E. Hover C/C++ keywords to see concise explanations.",
+  "version": "0.0.1",
+  "publisher": "your-id",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Education",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onCommand:cppKeywordExplain.toggle",
+    "onLanguage:c",
+    "onLanguage:cpp"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cppKeywordExplain.toggle",
+        "title": "C++ Keyword Explain: Toggle"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "cppKeywordExplain.toggle",
+        "key": "ctrl+alt+e",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "echo \"no lint configured\"",
+    "test": "echo \"no tests\""
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3",
+    "vsce": "^2.15.0"
+  }
+}
