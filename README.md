@@ -1,5 +1,10 @@
 # C++ Keyword Explainer
 
+╔══════════════════════════╗
+║   C++ Hover Explainer    ║
+║   Keywords • Clarity     ║
+╚══════════════════════════╝
+
 Quit alt-tabbing to docs. Hover the scary words. Get the gist fast.
 
 Hover C/C++ keywords like `constexpr`, `static_cast`, `noexcept`, and more to see concise, implementation-oriented explanations — right in the editor.
