@@ -1,9 +1,7 @@
 # C++ Keyword Explainer
 
-╔══════════════════════════╗
-║   C++ Hover Explainer    ║
-║   Keywords • Clarity     ║
-╚══════════════════════════╝
+![Logo](logo.png)
+
 
 Quit alt-tabbing to docs. Hover the scary words. Get the gist fast.
 
