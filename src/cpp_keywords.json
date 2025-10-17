@@ -1,0 +1,205 @@
+{
+  "static_cast": {
+    "title": "static_cast<T>(expr)",
+    "version": "C++98",
+    "summary": "Compile-time checked, explicit cast. Disallows unrelated pointer casts. Performs standard conversions (numeric, enum, pointer up/down if safe).",
+    "note": "Fails to compile on invalid conversions. No runtime type check.",
+    "ref": "https://en.cppreference.com/w/cpp/language/static_cast"
+  },
+  "const_cast": {
+    "title": "const_cast<T>(expr)",
+    "version": "C++98",
+    "summary": "Adds or removes const/volatile from a pointer or reference.",
+    "note": "Undefined behavior if you modify an object originally defined const.",
+    "ref": "https://en.cppreference.com/w/cpp/language/const_cast"
+  },
+  "reinterpret_cast": {
+    "title": "reinterpret_cast<T>(expr)",
+    "version": "C++98",
+    "summary": "Low-level, bit-pattern reinterpretation. No guarantees on portability or safety.",
+    "note": "Use only for well-defined ABI tricks. Often non-portable.",
+    "ref": "https://en.cppreference.com/w/cpp/language/reinterpret_cast"
+  },
+  "dynamic_cast": {
+    "title": "dynamic_cast<T>(expr)",
+    "version": "C++98",
+    "summary": "Runtime-checked cast across polymorphic hierarchies.",
+    "note": "Requires a polymorphic base (at least one virtual function). Returns nullptr or throws bad_cast on failure.",
+    "ref": "https://en.cppreference.com/w/cpp/language/dynamic_cast"
+  },
+  "constexpr": {
+    "title": "constexpr",
+    "version": "C++11",
+    "summary": "Requests compile-time evaluability when inputs are constant. Enables use in constant expressions.",
+    "note": "Function can still run at runtime if given runtime inputs.",
+    "ref": "https://en.cppreference.com/w/cpp/language/constexpr"
+  },
+  "consteval": {
+    "title": "consteval",
+    "version": "C++20",
+    "summary": "Immediate function. Must evaluate at compile time.",
+    "note": "C++20. Fails to compile if used with runtime inputs.",
+    "ref": "https://en.cppreference.com/w/cpp/language/consteval"
+  },
+  "constinit": {
+    "title": "constinit",
+    "version": "C++20",
+    "summary": "Guarantees static storage initialization is constant-initialized.",
+    "note": "C++20. Does not imply const. For globals/static locals.",
+    "ref": "https://en.cppreference.com/w/cpp/language/constinit"
+  },
+  "inline": {
+    "title": "inline",
+    "version": "C++98",
+    "summary": "Allows multiple definitions across TUs. Also suggests inlining to optimizer.",
+    "note": "Used for ODR-safe header definitions.",
+    "ref": "https://en.cppreference.com/w/cpp/language/inline"
+  },
+  "explicit": {
+    "title": "explicit",
+    "version": "C++98",
+    "summary": "Disables implicit conversions for constructors and conversion operators.",
+    "note": "Use to prevent unintended conversions.",
+    "ref": "https://en.cppreference.com/w/cpp/language/explicit"
+  },
+  "virtual": {
+    "title": "virtual",
+    "version": "C++98",
+    "summary": "Enables dynamic dispatch through vtables on member functions.",
+    "note": "Use override/final at override sites for clarity.",
+    "ref": "https://en.cppreference.com/w/cpp/language/virtual"
+  },
+  "override": {
+    "title": "override",
+    "version": "C++11",
+    "summary": "Marks a function that overrides a virtual base function. Enforced by compiler.",
+    "note": "Catches signature mismatch errors.",
+    "ref": "https://en.cppreference.com/w/cpp/language/override"
+  },
+  "final": {
+    "title": "final",
+    "version": "C++11",
+    "summary": "Prevents further overriding of a virtual function or inheritance from a class.",
+    "note": "Use to close hierarchies.",
+    "ref": "https://en.cppreference.com/w/cpp/language/final"
+  },
+  "noexcept": {
+    "title": "noexcept",
+    "version": "C++11",
+    "summary": "Declares a function does not throw exceptions. A throw triggers std::terminate.",
+    "note": "Enables optimizations and stronger guarantees.",
+    "ref": "https://en.cppreference.com/w/cpp/language/noexcept"
+  },
+  "mutable": {
+    "title": "mutable",
+    "version": "C++98",
+    "summary": "Allows a data member to be modified even if the containing object is const.",
+    "note": "Useful for caches and lazily computed fields.",
+    "ref": "https://en.cppreference.com/w/cpp/language/mutable"
+  },
+  "delete": {
+    "title": "= delete",
+    "version": "C++98",
+    "summary": "Marks a function as not callable. Prevents selected overloads.",
+    "note": "Common to disable copy/move or dangerous implicit conversions.",
+    "ref": "https://en.cppreference.com/w/cpp/language/delete"
+  },
+  "default": {
+    "title": "= default",
+    "version": "C++98",
+    "summary": "Requests compiler-generated special member implementation.",
+    "note": "Use to re-enable a suppressed default or express intent.",
+    "ref": "https://en.cppreference.com/w/cpp/language/default"
+  },
+  "template": {
+    "title": "template",
+    "version": "C++98",
+    "summary": "Declares a template (function, class, alias, variable).",
+    "note": "Combine with typename/class parameters and constraints.",
+    "ref": "https://en.cppreference.com/w/cpp/language/template"
+  },
+  "typename": {
+    "title": "typename",
+    "version": "C++98",
+    "summary": "Disambiguates dependent names as types in templates.",
+    "note": "Required in contexts like 'typename T::value_type'.",
+    "ref": "https://en.cppreference.com/w/cpp/language/typename"
+  },
+  "using": {
+    "title": "using",
+    "version": "C++98",
+    "summary": "Declares a type alias or introduces a name from a base.",
+    "note": "Prefer over typedef for clarity.",
+    "ref": "https://en.cppreference.com/w/cpp/language/using"
+  },
+  "concept": {
+    "title": "concept",
+    "version": "C++20",
+    "summary": "Names a boolean compile-time predicate used to constrain templates.",
+    "note": "C++20. Use with requires-clause or abbreviated templates.",
+    "ref": "https://en.cppreference.com/w/cpp/language/concept"
+  },
+  "requires": {
+    "title": "requires",
+    "version": "C++20",
+    "summary": "Introduces a requires-clause or requires-expression to constrain templates.",
+    "note": "C++20. Improves diagnostics and readability.",
+    "ref": "https://en.cppreference.com/w/cpp/language/requires"
+  },
+  "decltype": {
+    "title": "decltype(expr)",
+    "version": "C++98",
+    "summary": "Yields the type of an expression without evaluating it.",
+    "note": "Useful for generic return types and forwarding.",
+    "ref": "https://en.cppreference.com/w/cpp/language/decltype"
+  },
+  "namespace": {
+    "title": "namespace",
+    "version": "C++98",
+    "summary": "Scopes declarations to avoid name collisions.",
+    "note": "Prefer unnamed namespaces over static for internal linkage in C++.",
+    "ref": "https://en.cppreference.com/w/cpp/language/namespace"
+  },
+  "alignas": {
+    "title": "alignas(N|type)",
+    "version": "C++11",
+    "summary": "Requests minimum alignment for an entity.",
+    "note": "Use judiciously; over-alignment can hurt packing.",
+    "ref": "https://en.cppreference.com/w/cpp/language/alignas"
+  },
+  "alignof": {
+    "title": "alignof(type)",
+    "version": "C++11",
+    "summary": "Yields required alignment of a type in bytes.",
+    "note": "Pair with static_assert to enforce layout assumptions.",
+    "ref": "https://en.cppreference.com/w/cpp/language/alignof"
+  },
+  "volatile": {
+    "title": "volatile",
+    "version": "C++98",
+    "summary": "Prevents certain optimizations. Accesses are considered observable.",
+    "note": "Not a threading primitive. Use atomics for concurrency.",
+    "ref": "https://en.cppreference.com/w/cpp/language/cv"
+  },
+  "const": {
+    "title": "const",
+    "version": "C++98",
+    "summary": "Read-only view. For objects: cannot modify through this reference.",
+    "note": "Top-level const affects the object itself; low-level const affects what a pointer references.",
+    "ref": "https://en.cppreference.com/w/cpp/language/cv"
+  },
+  "friend": {
+    "title": "friend",
+    "version": "C++98",
+    "summary": "Grants another function/class access to private/protected members.",
+    "note": "Use sparingly. Keep APIs minimal.",
+    "ref": "https://en.cppreference.com/w/cpp/language/friend"
+  },
+  "operator": {
+    "title": "operator",
+    "version": "C++98",
+    "summary": "Introduces an overloaded operator or conversion.",
+    "note": "Follow standard semantics. Keep operators unsurprising.",
+    "ref": "https://en.cppreference.com/w/cpp/language/operators"
+  }
+}

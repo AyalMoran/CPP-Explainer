@@ -34,12 +34,13 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
+    "compile": "tsc -p ./ && cp src/cpp_keywords.json out/cpp_keywords.json",
     "watch": "tsc -watch -p ./",
     "lint": "echo \"no lint configured\"",
     "test": "echo \"no tests\""
   },
   "devDependencies": {
+    "@types/node": "^24.8.1",
     "@types/vscode": "^1.90.0",
     "typescript": "^5.9.3",
     "vsce": "^2.15.0"
