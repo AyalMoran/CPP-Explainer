@@ -1,6 +1,6 @@
 # C++ Keyword Explainer
 
-![chrome_wCbLhEp59f](/logo.png)
+![Logo](/logo.png)
 
 
 Quit alt-tabbing to docs. Hover the scary words. Get the gist fast.
