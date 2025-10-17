@@ -1,5 +1,7 @@
 # C++ Keyword Explainer
 
+Quit alt-tabbing to docs. Hover the scary words. Get the gist fast.
+
 Hover C/C++ keywords like `constexpr`, `static_cast`, `noexcept`, and more to see concise, implementation-oriented explanations — right in the editor.
 
 Status bar shows the current state. Toggle anytime with **Ctrl+Alt+E**.
