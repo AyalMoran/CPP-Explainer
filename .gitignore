@@ -18,6 +18,7 @@
 !.vscode/launch.json
 !.vscode/tasks.json
 
+# Explicitly ignore node_modules
 /node_modules/
 
 
