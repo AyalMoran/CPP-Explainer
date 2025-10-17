@@ -18,6 +18,6 @@
 !.vscode/launch.json
 !.vscode/tasks.json
 
-/node_modules
+/node_modules/
 
 
