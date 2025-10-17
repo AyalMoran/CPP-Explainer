@@ -21,4 +21,6 @@
 # Explicitly ignore node_modules
 /node_modules/
 
+# Allow logo
+!/logo.png
 
