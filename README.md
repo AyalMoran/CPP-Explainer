@@ -1,6 +1,6 @@
 # C++ Keyword Explainer
 
-![Logo](logo.png)
+![image](logo.png)
 
 
 Quit alt-tabbing to docs. Hover the scary words. Get the gist fast.
