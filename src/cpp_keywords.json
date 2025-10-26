@@ -1,205 +1,660 @@
 {
-  "static_cast": {
-    "title": "static_cast<T>(expr)",
-    "version": "C++98",
-    "summary": "Compile-time checked, explicit cast. Disallows unrelated pointer casts. Performs standard conversions (numeric, enum, pointer up/down if safe).",
-    "note": "Fails to compile on invalid conversions. No runtime type check.",
-    "ref": "https://en.cppreference.com/w/cpp/language/static_cast"
-  },
-  "const_cast": {
-    "title": "const_cast<T>(expr)",
-    "version": "C++98",
-    "summary": "Adds or removes const/volatile from a pointer or reference.",
-    "note": "Undefined behavior if you modify an object originally defined const.",
-    "ref": "https://en.cppreference.com/w/cpp/language/const_cast"
-  },
-  "reinterpret_cast": {
-    "title": "reinterpret_cast<T>(expr)",
-    "version": "C++98",
-    "summary": "Low-level, bit-pattern reinterpretation. No guarantees on portability or safety.",
-    "note": "Use only for well-defined ABI tricks. Often non-portable.",
-    "ref": "https://en.cppreference.com/w/cpp/language/reinterpret_cast"
-  },
-  "dynamic_cast": {
-    "title": "dynamic_cast<T>(expr)",
-    "version": "C++98",
-    "summary": "Runtime-checked cast across polymorphic hierarchies.",
-    "note": "Requires a polymorphic base (at least one virtual function). Returns nullptr or throws bad_cast on failure.",
-    "ref": "https://en.cppreference.com/w/cpp/language/dynamic_cast"
-  },
-  "constexpr": {
-    "title": "constexpr",
-    "version": "C++11",
-    "summary": "Requests compile-time evaluability when inputs are constant. Enables use in constant expressions.",
-    "note": "Function can still run at runtime if given runtime inputs.",
-    "ref": "https://en.cppreference.com/w/cpp/language/constexpr"
-  },
-  "consteval": {
-    "title": "consteval",
-    "version": "C++20",
-    "summary": "Immediate function. Must evaluate at compile time.",
-    "note": "C++20. Fails to compile if used with runtime inputs.",
-    "ref": "https://en.cppreference.com/w/cpp/language/consteval"
-  },
-  "constinit": {
-    "title": "constinit",
-    "version": "C++20",
-    "summary": "Guarantees static storage initialization is constant-initialized.",
-    "note": "C++20. Does not imply const. For globals/static locals.",
-    "ref": "https://en.cppreference.com/w/cpp/language/constinit"
-  },
-  "inline": {
-    "title": "inline",
-    "version": "C++98",
-    "summary": "Allows multiple definitions across TUs. Also suggests inlining to optimizer.",
-    "note": "Used for ODR-safe header definitions.",
-    "ref": "https://en.cppreference.com/w/cpp/language/inline"
-  },
-  "explicit": {
-    "title": "explicit",
-    "version": "C++98",
-    "summary": "Disables implicit conversions for constructors and conversion operators.",
-    "note": "Use to prevent unintended conversions.",
-    "ref": "https://en.cppreference.com/w/cpp/language/explicit"
-  },
-  "virtual": {
-    "title": "virtual",
-    "version": "C++98",
-    "summary": "Enables dynamic dispatch through vtables on member functions.",
-    "note": "Use override/final at override sites for clarity.",
-    "ref": "https://en.cppreference.com/w/cpp/language/virtual"
-  },
-  "override": {
-    "title": "override",
-    "version": "C++11",
-    "summary": "Marks a function that overrides a virtual base function. Enforced by compiler.",
-    "note": "Catches signature mismatch errors.",
-    "ref": "https://en.cppreference.com/w/cpp/language/override"
-  },
-  "final": {
-    "title": "final",
-    "version": "C++11",
-    "summary": "Prevents further overriding of a virtual function or inheritance from a class.",
-    "note": "Use to close hierarchies.",
-    "ref": "https://en.cppreference.com/w/cpp/language/final"
-  },
-  "noexcept": {
-    "title": "noexcept",
-    "version": "C++11",
-    "summary": "Declares a function does not throw exceptions. A throw triggers std::terminate.",
-    "note": "Enables optimizations and stronger guarantees.",
-    "ref": "https://en.cppreference.com/w/cpp/language/noexcept"
-  },
-  "mutable": {
-    "title": "mutable",
-    "version": "C++98",
-    "summary": "Allows a data member to be modified even if the containing object is const.",
-    "note": "Useful for caches and lazily computed fields.",
-    "ref": "https://en.cppreference.com/w/cpp/language/mutable"
-  },
-  "delete": {
-    "title": "= delete",
-    "version": "C++98",
-    "summary": "Marks a function as not callable. Prevents selected overloads.",
-    "note": "Common to disable copy/move or dangerous implicit conversions.",
-    "ref": "https://en.cppreference.com/w/cpp/language/delete"
-  },
-  "default": {
-    "title": "= default",
-    "version": "C++98",
-    "summary": "Requests compiler-generated special member implementation.",
-    "note": "Use to re-enable a suppressed default or express intent.",
-    "ref": "https://en.cppreference.com/w/cpp/language/default"
-  },
-  "template": {
-    "title": "template",
-    "version": "C++98",
-    "summary": "Declares a template (function, class, alias, variable).",
-    "note": "Combine with typename/class parameters and constraints.",
-    "ref": "https://en.cppreference.com/w/cpp/language/template"
-  },
-  "typename": {
-    "title": "typename",
-    "version": "C++98",
-    "summary": "Disambiguates dependent names as types in templates.",
-    "note": "Required in contexts like 'typename T::value_type'.",
-    "ref": "https://en.cppreference.com/w/cpp/language/typename"
-  },
-  "using": {
-    "title": "using",
-    "version": "C++98",
-    "summary": "Declares a type alias or introduces a name from a base.",
-    "note": "Prefer over typedef for clarity.",
-    "ref": "https://en.cppreference.com/w/cpp/language/using"
-  },
-  "concept": {
-    "title": "concept",
-    "version": "C++20",
-    "summary": "Names a boolean compile-time predicate used to constrain templates.",
-    "note": "C++20. Use with requires-clause or abbreviated templates.",
-    "ref": "https://en.cppreference.com/w/cpp/language/concept"
-  },
-  "requires": {
-    "title": "requires",
-    "version": "C++20",
-    "summary": "Introduces a requires-clause or requires-expression to constrain templates.",
-    "note": "C++20. Improves diagnostics and readability.",
-    "ref": "https://en.cppreference.com/w/cpp/language/requires"
-  },
-  "decltype": {
-    "title": "decltype(expr)",
-    "version": "C++98",
-    "summary": "Yields the type of an expression without evaluating it.",
-    "note": "Useful for generic return types and forwarding.",
-    "ref": "https://en.cppreference.com/w/cpp/language/decltype"
-  },
-  "namespace": {
-    "title": "namespace",
-    "version": "C++98",
-    "summary": "Scopes declarations to avoid name collisions.",
-    "note": "Prefer unnamed namespaces over static for internal linkage in C++.",
-    "ref": "https://en.cppreference.com/w/cpp/language/namespace"
-  },
   "alignas": {
-    "title": "alignas(N|type)",
-    "version": "C++11",
-    "summary": "Requests minimum alignment for an entity.",
-    "note": "Use judiciously; over-alignment can hurt packing.",
-    "ref": "https://en.cppreference.com/w/cpp/language/alignas"
+    "note": "Useful for SIMD or hardware requirements.",
+    "ref": "https://en.cppreference.com/w/cpp/language/alignas",
+    "summary": "Specify alignment of a type or object.",
+    "title": "alignas",
+    "version": "C++11"
   },
   "alignof": {
-    "title": "alignof(type)",
-    "version": "C++11",
-    "summary": "Yields required alignment of a type in bytes.",
-    "note": "Pair with static_assert to enforce layout assumptions.",
-    "ref": "https://en.cppreference.com/w/cpp/language/alignof"
+    "note": "Often equals alignof(T) at compile time.",
+    "ref": "https://en.cppreference.com/w/cpp/language/alignof",
+    "summary": "Yield required alignment of a type.",
+    "title": "alignof",
+    "version": "C++11"
   },
-  "volatile": {
-    "title": "volatile",
+  "and_eq": {
+    "title": "and_eq",
+    "version": "",
+    "summary": "Alternative token for &=.",
+    "note": "Rare. Prefer &=.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/and_eq"
+  },
+  "asm": {
+    "title": "asm",
+    "version": "",
+    "summary": "Embed assembly code (compiler-specific).",
+    "note": "Nonportable and optimizer-hostile.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/asm"
+  },
+  "auto": {
+    "title": "auto",
+    "version": "C++11",
+    "summary": "Type deduction for variables and return types.",
+    "note": "Prefer auto when the initializer shows the type.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/auto"
+  },
+  "bitand": {
+    "title": "bitand",
     "version": "C++98",
-    "summary": "Prevents certain optimizations. Accesses are considered observable.",
-    "note": "Not a threading primitive. Use atomics for concurrency.",
-    "ref": "https://en.cppreference.com/w/cpp/language/cv"
+    "summary": "Alternative token for & bitwise AND.",
+    "note": "Rare. Prefer &.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/bitand"
+  },
+  "bool": {
+    "title": "bool",
+    "version": "C++98",
+    "summary": "Boolean type true/false.",
+    "note": "Integral type with values true and false; size is implementation-defined.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/bool"
+  },
+  "break": {
+    "title": "break",
+    "version": "C++98",
+    "summary": "Exit the nearest loop or switch.",
+    "note": "Transfers control out of the innermost enclosing loop or switch statement.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/break"
+  },
+  "case": {
+    "title": "case",
+    "version": "C++98",
+    "summary": "Label a switch branch.",
+    "note": "Each case label must be unique within the same switch. Falls through if no break.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/case"
+  },
+  "catch": {
+    "title": "catch",
+    "version": "C++98",
+    "summary": "Handle an exception from try.",
+    "note": "Used after try. Catches thrown exceptions by type, in order of appearance.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/catch"
+  },
+  "char": {
+    "title": "char",
+    "version": "C++98",
+    "summary": "Narrow character type.",
+    "note": "Represents a single byte character. Signedness is implementation-defined.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/char"
+  },
+  "char16_t": {
+    "title": "char16_t",
+    "version": "C++11",
+    "summary": "UTF-16 code unit type.",
+    "note": "Used for UTF-16 encoded text; has size 16 bits and distinct type from char and wchar_t.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/char16_t"
+  },
+  "char32_t": {
+    "title": "char32_t",
+    "version": "C++11",
+    "summary": "UTF-32 code unit type.",
+    "note": "Used for UTF-32 encoded text; has size 32 bits and distinct type from char and wchar_t.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/char32_t"
+  },
+  "char8_t": {
+    "title": "char8_t",
+    "version": "C++20",
+    "summary": "UTF-8 code unit type.",
+    "note": "Introduced for type-safe UTF-8 handling; distinct from plain char.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/char8_t"
+  },
+  "class": {
+    "title": "class",
+    "version": "C++98",
+    "summary": "Define a class type.",
+    "note": "Classes define user types with members and access control. Default access is private.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/class"
+  },
+  "co_await": {
+    "title": "co_await",
+    "version": "C++20",
+    "summary": "Suspend execution until awaited coroutine result is ready.",
+    "note": "Used inside coroutines to asynchronously wait for an awaitable object.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/co_await"
+  },
+  "co_return": {
+    "title": "co_return",
+    "version": "C++20",
+    "summary": "Return a value or signal completion from a coroutine.",
+    "note": "Ends coroutine execution; may produce a final result for the promise object.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/co_return"
+  },
+  "co_yield": {
+    "title": "co_yield",
+    "version": "C++20",
+    "summary": "Yield a value to the coroutine's caller.",
+    "note": "Suspends coroutine after producing a value; resumes on next iteration or await.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/co_yield"
+  },
+  "compl": {
+    "title": "compl",
+    "version": "C++98",
+    "summary": "Alternative token for ~ bitwise NOT.",
+    "note": "Rarely used. Prefer ~ for clarity.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/compl"
+  },
+  "concept": {
+    "note": "Prefer small, composable concepts.",
+    "ref": "https://en.cppreference.com/w/cpp/language/concept",
+    "summary": "Constrain template arguments with boolean predicates.",
+    "title": "concept",
+    "version": "C++20"
   },
   "const": {
+    "note": "Top-level const not in function type; beware pointers' cv-qualification.",
+    "ref": "https://en.cppreference.com/w/cpp/language/cv",
+    "summary": "Declare objects or members as read-only.",
     "title": "const",
+    "version": "C++98"
+  },
+  "const_cast": {
+    "note": "Undefined behavior if you modify an object originally defined const.",
+    "ref": "https://en.cppreference.com/w/cpp/language/const_cast",
+    "summary": "Cast to add/remove const/volatile or adjust cv on pointers/refs.",
+    "title": "const_cast",
+    "version": "C++98"
+  },
+  "consteval": {
+    "note": "Must produce a constant. Cannot be called at run time.",
+    "ref": "https://en.cppreference.com/w/cpp/language/consteval",
+    "summary": "Immediate function. Evaluated at compile time.",
+    "title": "consteval",
+    "version": "C++20"
+  },
+  "constexpr": {
+    "note": "Usable in constant expressions. Functions have constexpr constraints.",
+    "ref": "https://en.cppreference.com/w/cpp/language/constexpr",
+    "summary": "Potentially evaluated at compile time. Implies const for objects.",
+    "title": "constexpr",
+    "version": "C++11"
+  },
+  "constinit": {
+    "note": "For globals and statics. Guarantees no dynamic initialization.",
+    "ref": "https://en.cppreference.com/w/cpp/language/constinit",
+    "summary": "Require static initialization (not dynamic).",
+    "title": "constinit",
+    "version": "C++20"
+  },
+  "continue": {
+    "title": "continue",
     "version": "C++98",
-    "summary": "Read-only view. For objects: cannot modify through this reference.",
-    "note": "Top-level const affects the object itself; low-level const affects what a pointer references.",
-    "ref": "https://en.cppreference.com/w/cpp/language/cv"
+    "summary": "Skip to the next iteration of the nearest loop.",
+    "note": "Immediately jumps to the next loop iteration; does not exit the loop.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/continue"
+  },
+  "decltype": {
+    "note": "Mind decltype(x) vs decltype((x)).",
+    "ref": "https://en.cppreference.com/w/cpp/language/decltype",
+    "summary": "Form a type from the declared type of an expression.",
+    "title": "decltype",
+    "version": "C++98"
+  },
+  "default": {
+    "note": "=default may enable triviality and noexcept.",
+    "ref": "https://en.cppreference.com/w/cpp/language/default",
+    "summary": "Provide default case in switch or defaulted special member.",
+    "title": "default",
+    "version": "C++98"
+  },
+  "delete": {
+    "note": "Use delete[] for arrays. Prefer smart pointers.",
+    "ref": "https://en.cppreference.com/w/cpp/language/delete",
+    "summary": "Destroy object or deallocate memory; or delete function.",
+    "title": "delete",
+    "version": "C++98"
+  },
+  "do": {
+    "title": "do",
+    "version": "C++98",
+    "summary": "Begin a do-while loop that executes at least once.",
+    "note": "The loop body runs before the condition is checked; useful for input-validation loops.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/do"
+  },
+  "double": {
+    "title": "double",
+    "version": "C++98",
+    "summary": "Double-precision floating-point type.",
+    "note": "Typically 64-bit IEEE 754; preferred default for floating-point arithmetic.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/double"
+  },
+  "dynamic_cast": {
+    "note": "Needs polymorphic base. Returns nullptr or throws bad_cast.",
+    "ref": "https://en.cppreference.com/w/cpp/language/dynamic_cast",
+    "summary": "Safe downcast across polymorphic types at runtime.",
+    "title": "dynamic_cast",
+    "version": "C++98"
+  },
+  "else": {
+    "title": "else",
+    "version": "C++98",
+    "summary": "Define the alternative branch of an if statement.",
+    "note": "Always use braces to avoid the dangling else problem.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/else"
+  },
+  "enum": {
+    "title": "enum",
+    "version": "C++98",
+    "summary": "Define an enumeration type with named integral constants.",
+    "note": "Prefer enum class (scoped enum) for type safety and no implicit conversions.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/enum"
+  },
+  "explicit": {
+    "note": "Avoid unintended implicit conversions.",
+    "ref": "https://en.cppreference.com/w/cpp/language/explicit",
+    "summary": "Prevent implicit conversions or copy-list init on constructors.",
+    "title": "explicit",
+    "version": "C++98"
+  },
+  "export": {
+    "title": "export",
+    "version": "C++20",
+    "summary": "Export declarations from a module interface unit.",
+    "note": "Used to make module entities visible to importers; replaces the old, unused template export keyword from C++98.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/export"
+  },
+  "extern": {
+    "title": "extern",
+    "version": "C++98",
+    "summary": "Declare a variable or function with external linkage.",
+    "note": "Indicates that the definition is provided elsewhere; often used in headers to declare globals or C linkage blocks.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/extern"
+  },
+  "false": {
+    "title": "false",
+    "version": "C++98",
+    "summary": "Boolean literal representing logical false.",
+    "note": "Used with bool expressions; converts to integer 0 when needed.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/false"
+  },
+  "final": {
+    "note": "Use to close hierarchies.",
+    "ref": "https://en.cppreference.com/w/cpp/language/final",
+    "summary": "final keyword.",
+    "title": "final",
+    "version": "C++11"
+  },
+  "float": {
+    "title": "float",
+    "version": "C++98",
+    "summary": "Single-precision floating-point type.",
+    "note": "Typically 32-bit IEEE 754; use when memory or bandwidth is critical, otherwise prefer double.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/float"
+  },
+  "for": {
+    "title": "for",
+    "version": "C++98",
+    "summary": "Traditional counted or range-based loop construct.",
+    "note": "Use range-based for (C++11) for cleaner iteration over containers; avoid modifying container size during iteration.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/for"
   },
   "friend": {
+    "note": "Alternative patterns often better than friend.",
+    "ref": "https://en.cppreference.com/w/cpp/language/friend",
+    "summary": "Grant access to private/protected members.",
     "title": "friend",
+    "version": "C++98"
+  },
+  "goto": {
+    "title": "goto",
     "version": "C++98",
-    "summary": "Grants another function/class access to private/protected members.",
-    "note": "Use sparingly. Keep APIs minimal.",
-    "ref": "https://en.cppreference.com/w/cpp/language/friend"
+    "summary": "Unconditional jump to a labeled statement.",
+    "note": "Avoid in structured programming; occasionally used for low-level error handling or cleanup.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/goto"
+  },
+  "if": {
+    "title": "if",
+    "version": "C++98",
+    "summary": "Conditional execution based on a boolean expression.",
+    "note": "Since C++17, supports an initializer (if (auto x = f(); x)); always use braces for clarity.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/if"
+  },
+  "import": {
+    "title": "import",
+    "version": "C++20",
+    "summary": "Import a named module or header unit.",
+    "note": "Used to access exported declarations from a C++20 module; replaces preprocessor-based includes for modular code.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/import"
+  },
+  "inline": {
+    "note": "Inline variables since C++17.",
+    "ref": "https://en.cppreference.com/w/cpp/language/inline",
+    "summary": "Suggest inlining; define ODR-used entities in headers; inline variables.",
+    "title": "inline",
+    "version": "C++98"
+  },
+  "int": {
+    "title": "int",
+    "version": "C++98",
+    "summary": "Signed integer type.",
+    "note": "Usually 32 bits on modern systems; use fixed-width types like int32_t for portability.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/int"
+  },
+  "long": {
+    "title": "long",
+    "version": "C++98",
+    "summary": "Integer type at least as wide as int.",
+    "note": "Width varies by platform (32-bit on Windows, 64-bit on most Unix-like systems).",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/long"
+  },
+  "module": {
+    "title": "module",
+    "version": "C++20",
+    "summary": "Define a module or declare a module interface unit.",
+    "note": "Used to define named modules in C++20; improves build times and encapsulation compared to header-based includes.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/module"
+  },
+  "mutable": {
+    "note": "Use judiciously to preserve const-correctness.",
+    "ref": "https://en.cppreference.com/w/cpp/language/mutable",
+    "summary": "Allow mutation of member in const object or lambda capture.",
+    "title": "mutable",
+    "version": "C++98"
+  },
+  "namespace": {
+    "note": "Use nested namespace syntax: namespace a::b { }",
+    "ref": "https://en.cppreference.com/w/cpp/language/namespace",
+    "summary": "Declare a namespace scope.",
+    "title": "namespace",
+    "version": "C++98"
+  },
+  "noexcept": {
+    "note": "Enables move operations and optimizations.",
+    "ref": "https://en.cppreference.com/w/cpp/language/noexcept",
+    "summary": "Specify and query that a function does not throw.",
+    "title": "noexcept",
+    "version": "C++11"
+  },
+  "not": {
+    "title": "not",
+    "version": "C++98",
+    "summary": "Alternative token for ! logical NOT.",
+    "note": "Rarely used; prefer ! for clarity and consistency.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/not"
+  },
+  "not_eq": {
+    "title": "not_eq",
+    "version": "C++98",
+    "summary": "Alternative token for != not equal operator.",
+    "note": "Rarely used; prefer != for readability.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/not_eq"
+  },
+  "nullptr": {
+    "title": "nullptr",
+    "version": "C++11",
+    "summary": "Null pointer literal of type std::nullptr_t.",
+    "note": "Type-safe replacement for NULL and 0; can’t be implicitly converted to integral types.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/nullptr"
   },
   "operator": {
+    "note": "Avoid cleverness.",
+    "ref": "https://en.cppreference.com/w/cpp/language/operators",
+    "summary": "Declare or define an operator overload or conversion.",
     "title": "operator",
+    "version": "C++98"
+  },
+  "or": {
+    "title": "or",
     "version": "C++98",
-    "summary": "Introduces an overloaded operator or conversion.",
-    "note": "Follow standard semantics. Keep operators unsurprising.",
-    "ref": "https://en.cppreference.com/w/cpp/language/operators"
+    "summary": "Alternative token for || logical OR.",
+    "note": "Seldom used; prefer || for conventional style and readability.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/or"
+  },
+  "or_eq": {
+    "title": "or_eq",
+    "version": "C++98",
+    "summary": "Alternative token for |= bitwise OR assignment.",
+    "note": "Rarely used; prefer |= for clarity.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/or_eq"
+  },
+  "override": {
+    "note": "Catches signature mismatch errors.",
+    "ref": "https://en.cppreference.com/w/cpp/language/override",
+    "summary": "override keyword.",
+    "title": "override",
+    "version": "C++11"
+  },
+  "private": {
+    "title": "private",
+    "version": "C++98",
+    "summary": "Access specifier restricting access to the class and its friends.",
+    "note": "Default access level for class members; encapsulates implementation details.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/private"
+  },
+  "protected": {
+    "title": "protected",
+    "version": "C++98",
+    "summary": "Access specifier allowing access from the class, derived classes, and friends.",
+    "note": "Use for inheritance hierarchies; avoid overexposing internal details.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/protected"
+  },
+  "public": {
+    "title": "public",
+    "version": "C++98",
+    "summary": "Access specifier making members accessible from any scope.",
+    "note": "Defines the external interface of a class; default for struct members.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/public"
+  },
+  "reflexpr": {
+    "title": "reflexpr",
+    "version": "reflection TS",
+    "summary": "Obtain a metaobject describing a type, expression, or entity (Reflection TS).",
+    "note": "Part of the Reflection Technical Specification; not in the standard yet.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/reflexpr"
+  },
+  "register": {
+    "title": "register",
+    "version": "C++98",
+    "summary": "Storage-class specifier suggesting keeping a variable in a CPU register.",
+    "note": "Deprecated and ignored in modern C++; has no effect on optimization.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/register"
+  },
+  "reinterpret_cast": {
+    "note": "Rare. Can violate aliasing rules.",
+    "ref": "https://en.cppreference.com/w/cpp/language/reinterpret_cast",
+    "summary": "Bit-level cast. Reinterpret representation.",
+    "title": "reinterpret_cast",
+    "version": "C++98"
+  },
+  "requires": {
+    "note": "Great with ranges and algorithms.",
+    "ref": "https://en.cppreference.com/w/cpp/language/requires",
+    "summary": "Introduce a requires-clause or requires-expression for concepts.",
+    "title": "requires",
+    "version": "C++20"
+  },
+  "return": {
+    "title": "return",
+    "version": "C++98",
+    "summary": "Exit a function and optionally provide a return value.",
+    "note": "Triggers copy elision or NRVO where possible; returning local objects is efficient in modern C++.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/return"
+  },
+  "short": {
+    "title": "short",
+    "version": "C++98",
+    "summary": "Signed integer type not wider than int.",
+    "note": "Typically 16 bits; used when compact storage matters more than range.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/short"
+  },
+  "signed": {
+    "title": "signed",
+    "version": "C++98",
+    "summary": "Explicitly mark an integer type as signed.",
+    "note": "Rarely needed since int is signed by default; clarifies intent when mixed with unsigned types.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/signed"
+  },
+  "sizeof": {
+    "title": "sizeof",
+    "version": "C++98",
+    "summary": "Return the size in bytes of a type or object at compile time.",
+    "note": "Does not evaluate its operand; sizeof(array) gives total byte size, not element count.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/sizeof"
+  },
+  "static": {
+    "title": "static",
+    "version": "C++98",
+    "summary": "Specify internal linkage, static storage duration, or class static members.",
+    "note": "Inside functions defines static locals (persistent state); in classes defines shared members.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/static"
+  },
+  "static_assert": {
+    "title": "static_assert",
+    "version": "C++11",
+    "summary": "Perform compile-time assertion with an optional message.",
+    "note": "Useful for template constraints and validating invariants at compile time.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/static_assert"
+  },
+  "static_cast": {
+    "note": "Cannot cast away const/volatile.",
+    "ref": "https://en.cppreference.com/w/cpp/language/static_cast",
+    "summary": "Checked cast for well-defined conversions.",
+    "title": "static_cast",
+    "version": "C++98"
+  },
+  "struct": {
+    "title": "struct",
+    "version": "C++98",
+    "summary": "Define a class type with public members by default.",
+    "note": "Structs and classes are equivalent except for default access (public for struct, private for class).",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/struct"
+  },
+  "switch": {
+    "title": "switch",
+    "version": "C++98",
+    "summary": "Select among multiple branches based on an integral or enum expression.",
+    "note": "Each case label must be unique; remember to use break to prevent fall-through unless intentional.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/switch"
+  },
+  "template": {
+    "note": "Alias and variable templates reduce boilerplate.",
+    "ref": "https://en.cppreference.com/w/cpp/language/template",
+    "summary": "Declare a template (class, function, alias, variable).",
+    "title": "template",
+    "version": "C++98"
+  },
+  "this": {
+    "title": "this",
+    "version": "C++98",
+    "summary": "Pointer to the current object within a non-static member function.",
+    "note": "Has type T* or const T* depending on the function; unavailable in static member functions.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/this"
+  },
+  "thread_local": {
+    "title": "thread_local",
+    "version": "C++11",
+    "summary": "Declare an object with thread storage duration.",
+    "note": "Each thread has its own instance of a thread_local variable; initialized on first use in that thread.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/thread_local"
+  },
+  "throw": {
+    "title": "throw",
+    "version": "C++98",
+    "summary": "Throw an exception or rethrow the current one if used without an operand.",
+    "note": "Use bare throw in catch blocks to rethrow; prefer exceptions for truly exceptional conditions only.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/throw"
+  },
+  "true": {
+    "title": "true",
+    "version": "C++98",
+    "summary": "Boolean literal representing logical true.",
+    "note": "Evaluates to integer 1 in arithmetic contexts; used with bool expressions.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/true"
+  },
+  "try": {
+    "title": "try",
+    "version": "C++98",
+    "summary": "Begin a block of code to be monitored for exceptions.",
+    "note": "Must be followed by one or more catch clauses or a function-try-block; works with constructors and destructors too.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/try"
+  },
+  "typedef": {
+    "title": "typedef",
+    "version": "C++98",
+    "summary": "Create a type alias using an existing type.",
+    "note": "Replaced by using declarations in modern C++; still common in C interoperability code.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/typedef"
+  },
+  "typeid": {
+    "title": "typeid",
+    "version": "C++98",
+    "summary": "Return runtime type information (RTTI) as a std::type_info object.",
+    "note": "Requires RTTI; for polymorphic objects, yields dynamic type when applied to dereferenced pointers.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/typeid"
+  },
+  "typename": {
+    "note": "Needed before dependent names.",
+    "ref": "https://en.cppreference.com/w/cpp/language/typename",
+    "summary": "Treat dependent name as a type in templates.",
+    "title": "typename",
+    "version": "C++98"
+  },
+  "union": {
+    "title": "union",
+    "version": "C++98",
+    "summary": "Define a type whose members share the same memory location.",
+    "note": "Only one member is active at a time; use std::variant for safer type-safe alternatives.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/union"
+  },
+  "unsigned": {
+    "title": "unsigned",
+    "version": "C++98",
+    "summary": "Specify that an integer type is unsigned.",
+    "note": "Unsigned integers wrap on overflow; be cautious mixing with signed values.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/unsigned"
+  },
+  "using": {
+    "note": "Prefer using over typedef; C++20 using enum.",
+    "ref": "https://en.cppreference.com/w/cpp/language/using",
+    "summary": "Introduce alias or using-declaration; start using-enum list.",
+    "title": "using",
+    "version": "C++98"
+  },
+  "virtual": {
+    "note": "Use override/final on overrides.",
+    "ref": "https://en.cppreference.com/w/cpp/language/virtual",
+    "summary": "Enable dynamic dispatch and polymorphism on member functions.",
+    "title": "virtual",
+    "version": "C++98"
+  },
+  "void": {
+    "title": "void",
+    "version": "C++98",
+    "summary": "Indicate the absence of a value or an incomplete type.",
+    "note": "Used for functions that return nothing, pointers to untyped memory, and template specializations requiring an empty return type.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/void"
+  },
+  "volatile": {
+    "note": "Not a threading primitive; use atomics/mutexes.",
+    "ref": "https://en.cppreference.com/w/cpp/language/cv",
+    "summary": "Prevent certain optimizations for memory-mapped I/O, etc.",
+    "title": "volatile",
+    "version": "C++98"
+  },
+  "wchar_t": {
+    "title": "wchar_t",
+    "version": "C++98",
+    "summary": "Wide character type for extended character sets.",
+    "note": "Size and encoding are implementation-defined; use char16_t or char32_t for portable Unicode handling.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/wchar_t"
+  },
+  "while": {
+    "title": "while",
+    "version": "C++98",
+    "summary": "Loop construct that repeats while a condition is true.",
+    "note": "Evaluates the condition before each iteration; use do-while for at-least-once execution.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/while"
+  },
+  "xor": {
+    "title": "xor",
+    "version": "C++98",
+    "summary": "Alternative token for ^ bitwise XOR.",
+    "note": "Rarely used; prefer ^ for clarity and conventional style.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/xor"
+  },
+  "xor_eq": {
+    "title": "xor_eq",
+    "version": "C++98",
+    "summary": "Alternative token for ^= bitwise XOR assignment.",
+    "note": "Seldom used; prefer ^= for readability.",
+    "ref": "https://en.cppreference.com/w/cpp/keyword/xor_eq"
   }
 }
